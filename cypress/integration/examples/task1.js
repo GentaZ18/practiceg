@@ -7,6 +7,7 @@ describe('Boca Raton to West Palm Beach', () => {
         cy.wait(2000)
         cy.contains('Build Your Pass')
 
+
         // Click the 'Build Your Pass' button
         const buildYourPassButton = cy.get('[data-testid="primaryBtnWithLoader"]')
         buildYourPassButton.click().then(() => {

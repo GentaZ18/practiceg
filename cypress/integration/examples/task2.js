@@ -4,6 +4,7 @@ describe('Miami to Fort Lauderdale Monthly Commuter Pass', () => {
         cy.viewport(1300, 900)
 
         // Wait for the page to load
+
         cy.wait(2000)
         cy.contains('Build Your Pass')
             // Click the 'Build Your Pass' button
