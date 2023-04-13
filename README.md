@@ -39,3 +39,6 @@ Test Results:
 
 1. The first test is pass, because the data is updated correctly
 2. The second test should be fail and it is fail because the price when the ticket is added to cart is not the same as in cart page. 185 is different from 184.05 or 184(rounded)
+
+You can also view the tests results directly in cypress cloud here:
+https://cloud.cypress.io/organizations/97245081-0dc9-4680-a54b-34048166dcc5/projects
