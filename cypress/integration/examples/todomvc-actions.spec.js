@@ -1,3 +1,6 @@
+// to run all tests use this command "npx cypress run"
+//to run only one test use this command "npx cypress run spec cypress/integration/examples/todomvc-filtering.spec.js " for example
+
 /// <reference types="cypress" />
 
 describe('MVC ToDo App actions' ,() =>{
