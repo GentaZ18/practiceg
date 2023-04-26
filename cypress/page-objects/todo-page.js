@@ -1,52 +1,54 @@
-/// <reference types="cypress" />
+
 // reference here https://testautomationu.applitools.com/cypress-tutorial/chapter7.html
 //Instead of exporting one class, we’re exporting a set of functions and Instead of a “page object”, we’ve created a “page module”
+/// /// <reference types="cypress" />
 
-
-export function navigate() {
+export class TodoPage {
+  navigate() {
     cy.visit('http://todomvc-app-for-testing.surge.sh/')
   }
-  
-export function addTodo(todoText) {
+
+  addTodo(todoText) {
     cy.get('.new-todo').type(todoText + '{enter}')
   }
-  
-export function toggleTodo(todoIndex) {
+
+  toggleTodo(todoIndex) {
     cy.get(`.todo-list li:nth-child(${todoIndex + 1}) .toggle`).click()
   }
-  
-export function showOnlyCompletedTodos() {
+
+  showOnlyCompletedTodos() {
     cy.contains('Completed').click()
   }
-  
-export function showOnlyActiveTodos() {
+
+  showOnlyActiveTodos() {
     cy.contains('Active').click()
   }
-  
-export function showAllTodos() {
+
+  showAllTodos() {
     cy.contains('All').click()
   }
-  
-export function clearCompleted() {
+
+  clearCompleted() {
     cy.contains('Clear completed').click()
   }
-  
-export function validateNumberOfTodosShown(expectedNumberOfTodos) {
+
+  validateNumberOfTodosShown(expectedNumberOfTodos) {
     cy.get('.todo-list li').should('have.length', expectedNumberOfTodos)
   }
-  
-export function validateTodoCompletedState(todoIndex, shouldBeCompleted) {
+
+  validateTodoCompletedState(todoIndex, shouldBeCompleted) {
     const l = cy.get(`.todo-list li:nth-child(${todoIndex + 1}) label`)
-  
+
     l.should(`${shouldBeCompleted ? '' : 'not.'}have.css`, 'text-decoration-line', 'line-through')
   }
-  
-export function validateTodoText(todoIndex, expectedText) {
+
+  validateTodoText(todoIndex, expectedText) {
     cy.get(`.todo-list li:nth-child(${todoIndex + 1}) label`).should('have.text', expectedText)
   }
-  
-export function validateToggleState(todoIndex, shouldBeToggled) {
+
+  validateToggleState(todoIndex, shouldBeToggled) {
     const label = cy.get(`.todo-list li:nth-child(${todoIndex + 1}) label`)
-  
+
     label.should(`${shouldBeToggled ? '' : 'not.'}be.checked`)
   }
+}
